@@ -13,7 +13,7 @@ export default async function Home() {
     <main>
       <Wallpaper />
       <div className="pl-30 pr-30 pt-10">
-        <MainTitle content="Nos dernières opportunités" />
+        <MainTitle content="Nos dernières opportunités" countOffre={0} />
         <JobList jobs={jobs} />
         <div className="flex justify-center pt-5 pb-3">
           <RedirectButton content="Voir toutes les offres" redirectUrl="/jobs" />

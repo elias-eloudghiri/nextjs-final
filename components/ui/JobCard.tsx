@@ -4,6 +4,7 @@ import { pinStore } from "@/store/pinStore";
 import { Job } from "@/types/job";
 import { redirect } from "next/dist/server/api-utils";
 import Image from "next/image";
+import { MouseEvent as ReactMouseEvent } from "react";
 
 type JobCardType = {
   job: JobDocument;
@@ -11,7 +12,7 @@ type JobCardType = {
 
 export default function JobCard({ job }: JobCardType) {
   const { jobs, addPinJob, removePinJob } = pinStore();
-  const pinOrUnPinJob = (event: Event) => {
+  const pinOrUnPinJob = (event: ReactMouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (jobs.some((j) => j.uid === job.uid)) removePinJob(job);
     else addPinJob(job);
@@ -22,17 +23,18 @@ export default function JobCard({ job }: JobCardType) {
       <div className="job-card">
         <div className="flex justify-between">
           <label>{job.data.title}</label>
-          <Image
-            onClick={(event: Event) => pinOrUnPinJob(event)}
-            src={
-              jobs.some((j) => j.uid === job.uid)
-                ? "/bookmark.svg"
-                : "/save.svg"
-            }
-            alt="bookmark"
-            width={20}
-            height={20}
-          />
+          <button onClick={pinOrUnPinJob}>
+            <Image
+              src={
+                jobs.some((j) => j.uid === job.uid)
+                  ? "/bookmark.svg"
+                  : "/save.svg"
+              }
+              alt="bookmark"
+              width={20}
+              height={20}
+            />
+          </button>
         </div>
         <div className="flex">
           <Image
