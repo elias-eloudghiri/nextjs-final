@@ -1,7 +1,8 @@
+import { KeyTextField } from "@prismicio/client";
 import Image from "next/image";
 
 type MainTitle = {
-  content: string;
+  content: KeyTextField;
   countOffre: number;
 };
 export default function MainTitle({ content, countOffre = 0 }: MainTitle) {
