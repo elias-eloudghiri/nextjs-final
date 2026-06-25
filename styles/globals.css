@@ -56,7 +56,11 @@ h1 {
   width: 100%;
 }
 
-.redirect-button{
+.redirect-button {
   background-color: #2175D9;
   color: white;
+}
+
+.apply-input {
+  border: 2px solid blue;
 }

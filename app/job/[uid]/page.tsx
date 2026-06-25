@@ -4,6 +4,7 @@ import { components } from "@/slices";
 import Image from "next/image";
 import MainTitle from "@/components/ui/MainTitle";
 import RedirectButton from "@/components/ui/RedirectButton";
+import ApplyForm from "./_component/applyForm";
 
 export default async function Page({ params }: PageProps<"/job/[uid]">) {
   const { uid } = await params;
@@ -19,13 +20,19 @@ export default async function Page({ params }: PageProps<"/job/[uid]">) {
         />
         <MainTitle content={page.data.title} countOffre={0} />
         <div className="flex">
-          <Image src={"/calendarBlue.svg"} alt="calendar" width={10} height={10} />
+          <Image
+            src={"/calendarBlue.svg"}
+            alt="calendar"
+            width={10}
+            height={10}
+          />
           <p>{page.data.date}</p>
         </div>
         <div>
           <p>{page.data.techno}</p>
         </div>
         <SliceZone slices={page.data.slices} components={components} />
+        <ApplyForm job={page} />
       </div>
     </main>
   );
