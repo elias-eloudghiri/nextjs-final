@@ -1,0 +1,9 @@
+{
+  "repositoryName": "190afdab",
+  "routes": [
+    {
+      "type": "zrtyui",
+      "path": "/zrtyui"
+    }
+  ]
+}

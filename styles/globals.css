@@ -42,3 +42,12 @@ h1 {
 .title-container {
   border-bottom: solid 3px #0F1941 ;
 }
+
+.job-list {
+  margin-top: 1em;
+}
+
+.job-card {
+  background-color: white;
+  padding: 1em;
+}
