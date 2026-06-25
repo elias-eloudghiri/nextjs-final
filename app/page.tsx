@@ -1,7 +1,13 @@
+import MainTitle from "@/components/ui/MainTitle";
+import Wallpaper from "@/components/ui/Wallpaper";
+
 export default function Home() {
   return (
     <main>
-      <h1>Main !</h1>
+      <Wallpaper />
+      <div className="pl-30 pr-30 pt-10">
+        <MainTitle content="Nos dernières opportunités" />
+      </div>
     </main>
   );
 }
