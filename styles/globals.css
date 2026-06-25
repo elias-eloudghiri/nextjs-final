@@ -55,3 +55,8 @@ h1 {
   padding: 1em;
   width: 100%;
 }
+
+.redirect-button{
+  background-color: #2175D9;
+  color: white;
+}
