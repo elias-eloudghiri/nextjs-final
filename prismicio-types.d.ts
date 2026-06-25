@@ -46,7 +46,7 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type JobDocumentDataSlicesSlice = never
+type JobDocumentDataSlicesSlice = JobDescriptionSlice
 
 /**
  * Content for Job documents
@@ -163,6 +163,54 @@ export type JobDocument<Lang extends string = string> = prismic.PrismicDocumentW
 
 export type AllDocumentTypes = JobDocument;
 
+/**
+ * Primary content in *JobDescription → Default → Primary*
+ */
+export interface JobDescriptionSliceDefaultPrimary {
+	/**
+	 * Title field in *JobDescription → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: job_description.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Description field in *JobDescription → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: job_description.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for JobDescription Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type JobDescriptionSliceDefault = prismic.SharedSliceVariation<"default", Simplify<JobDescriptionSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *JobDescription*
+ */
+type JobDescriptionSliceVariation = JobDescriptionSliceDefault
+
+/**
+ * JobDescription Shared Slice
+ *
+ * - **API ID**: `job_description`
+ * - **Description**: JobDescription
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type JobDescriptionSlice = prismic.SharedSlice<"job_description", JobDescriptionSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -181,7 +229,11 @@ declare module "@prismicio/client" {
 			JobDocument,
 			JobDocumentData,
 			JobDocumentDataSlicesSlice,
-			AllDocumentTypes
+			AllDocumentTypes,
+			JobDescriptionSlice,
+			JobDescriptionSliceDefaultPrimary,
+			JobDescriptionSliceVariation,
+			JobDescriptionSliceDefault
 		}
 	}
 }

@@ -49,7 +49,11 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "job_description": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
