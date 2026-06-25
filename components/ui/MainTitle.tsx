@@ -10,13 +10,13 @@ export default function MainTitle({ content, countOffre = 0 }: MainTitle) {
       <h1>{content}</h1>
 
       {countOffre === 0 ? null : (
-        <div >
-          <div >
+        <div>
+          <div>
             <Image src={"/work.svg"} alt="work" width={10} height={10} />
           </div>
 
           <div>
-            <label >
+            <label>
               {countOffre}
               {countOffre > 1 ? " offres" : " offre"}
             </label>
