@@ -10,7 +10,7 @@ type JobCardType = {
 
 export default function JobCard({ job }: JobCardType) {
   return (
-    <div className="job-card w-70">
+    <div className="job-card">
       <div className="flex justify-between">
         <label>{job.data.title}</label>
         <Image src={"/save.svg"} alt="bookmark" width={20} height={20} />

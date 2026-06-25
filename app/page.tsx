@@ -6,10 +6,7 @@ import { Job } from "@/types/job";
 
 export default async function Home() {
   const client = createClient();
-  const jobs = await client.getAllByType("job");
-  jobs.forEach((job) => {
-    console.log({ job });
-  });
+  const jobs = (await client.getAllByType("job")).splice(0,6);
 
   return (
     <main>
