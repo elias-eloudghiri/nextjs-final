@@ -1,21 +1,38 @@
+"use client";
+import { JobDocument } from "@/prismicio-types";
+import { pinStore } from "@/store/pinStore";
 import { Job } from "@/types/job";
 import { redirect } from "next/dist/server/api-utils";
 import Image from "next/image";
 
 type JobCardType = {
-  job: {
-    uid: string;
-    data: Job;
-  };
+  job: JobDocument;
 };
 
 export default function JobCard({ job }: JobCardType) {
+  const { jobs, addPinJob, removePinJob } = pinStore();
+  const pinOrUnPinJob = (event: Event) => {
+    event.preventDefault();
+    if (jobs.some((j) => j.uid === job.uid)) removePinJob(job);
+    else addPinJob(job);
+  };
+
   return (
     <a href={"/job/" + job.uid}>
       <div className="job-card">
         <div className="flex justify-between">
           <label>{job.data.title}</label>
-          <Image src={"/save.svg"} alt="bookmark" width={20} height={20} />
+          <Image
+            onClick={(event: Event) => pinOrUnPinJob(event)}
+            src={
+              jobs.some((j) => j.uid === job.uid)
+                ? "/bookmark.svg"
+                : "/save.svg"
+            }
+            alt="bookmark"
+            width={20}
+            height={20}
+          />
         </div>
         <div className="flex">
           <Image

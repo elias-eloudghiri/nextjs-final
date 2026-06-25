@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Login() {
   return (
-    <Link href={"/"}>
+    <Link href={"/profile"}>
       <Image src="/loginWhite.svg" alt="logo" width="20" height="24"></Image>
     </Link>
   );
