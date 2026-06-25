@@ -1,9 +1,50 @@
 {
-  "id": "zrtyui",
-  "label": "zrtyui",
-  "repeatable": false,
+  "id": "job",
+  "label": "Job",
+  "repeatable": true,
   "json": {
     "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "date": {
+        "type": "Text",
+        "config": {
+          "label": "Date",
+          "placeholder": ""
+        }
+      },
+      "techno": {
+        "type": "Text",
+        "config": {
+          "label": "Techno",
+          "placeholder": ""
+        }
+      },
+      "description_card": {
+        "type": "Text",
+        "config": {
+          "label": "DescriptionCard",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

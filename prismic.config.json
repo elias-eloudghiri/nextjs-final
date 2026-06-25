@@ -2,8 +2,8 @@
   "repositoryName": "190afdab",
   "routes": [
     {
-      "type": "zrtyui",
-      "path": "/zrtyui"
+      "type": "job",
+      "path": "/job/:uid"
     }
   ]
 }

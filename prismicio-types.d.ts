@@ -46,49 +46,104 @@ type ContentRelationshipFieldWithData<
 		>
 }[Exclude<TCustomType[number], string>["id"]];
 
-type ZrtyuiDocumentDataSlicesSlice = never
+type JobDocumentDataSlicesSlice = never
 
 /**
- * Content for zrtyui documents
+ * Content for Job documents
  */
-interface ZrtyuiDocumentData {
+interface JobDocumentData {
 	/**
-	 * Slice Zone field in *zrtyui*
+	 * Title field in *Job*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: job.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Date field in *Job*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: job.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	date: prismic.KeyTextField;
+	
+	/**
+	 * Techno field in *Job*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: job.techno
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	techno: prismic.KeyTextField;
+	
+	/**
+	 * DescriptionCard field in *Job*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: job.description_card
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	description_card: prismic.KeyTextField;
+	
+	/**
+	 * Description field in *Job*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: job.description
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	description: prismic.KeyTextField;
+	
+	/**
+	 * Slice Zone field in *Job*
 	 *
 	 * - **Field Type**: Slice Zone
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: zrtyui.slices[]
+	 * - **API ID Path**: job.slices[]
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/slices
 	 */
-	slices: prismic.SliceZone<ZrtyuiDocumentDataSlicesSlice>;/**
-	 * Meta Title field in *zrtyui*
+	slices: prismic.SliceZone<JobDocumentDataSlicesSlice>;/**
+	 * Meta Title field in *Job*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: zrtyui.meta_title
+	 * - **API ID Path**: job.meta_title
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	meta_title: prismic.KeyTextField;
 	
 	/**
-	 * Meta Description field in *zrtyui*
+	 * Meta Description field in *Job*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: zrtyui.meta_description
+	 * - **API ID Path**: job.meta_description
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/text
 	 */
 	meta_description: prismic.KeyTextField;
 	
 	/**
-	 * Meta Image field in *zrtyui*
+	 * Meta Image field in *Job*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: zrtyui.meta_image
+	 * - **API ID Path**: job.meta_image
 	 * - **Tab**: SEO & Metadata
 	 * - **Documentation**: https://prismic.io/docs/fields/image
 	 */
@@ -96,17 +151,17 @@ interface ZrtyuiDocumentData {
 }
 
 /**
- * zrtyui document from Prismic
+ * Job document from Prismic
  *
- * - **API ID**: `zrtyui`
- * - **Repeatable**: `false`
+ * - **API ID**: `job`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ZrtyuiDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<ZrtyuiDocumentData>, "zrtyui", Lang>;
+export type JobDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<JobDocumentData>, "job", Lang>;
 
-export type AllDocumentTypes = ZrtyuiDocument;
+export type AllDocumentTypes = JobDocument;
 
 declare module "@prismicio/client" {
 	interface CreateClient {
@@ -123,9 +178,9 @@ declare module "@prismicio/client" {
 	
 	namespace Content {
 		export type {
-			ZrtyuiDocument,
-			ZrtyuiDocumentData,
-			ZrtyuiDocumentDataSlicesSlice,
+			JobDocument,
+			JobDocumentData,
+			JobDocumentDataSlicesSlice,
 			AllDocumentTypes
 		}
 	}
